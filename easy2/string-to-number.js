@@ -24,3 +24,17 @@ function stringToInteger(string) {
 
 console.log(stringToInteger("4321") === 4321); // logs true
 console.log(stringToInteger("570") === 570); // logs true
+
+function stringToSignedInteger(string) {
+  if (string.startsWith("+")) {
+    return stringToInteger(string.slice(1));
+  } else if (string.startsWith("-")) {
+    return -stringToInteger(string.slice(1));
+  } else {
+    return stringToInteger(string);
+  }
+}
+
+console.log(stringToSignedInteger("4321") === 4321); // logs true
+console.log(stringToSignedInteger("-570") === -570); // logs true
+console.log(stringToSignedInteger("+100") === 100); // logs true
