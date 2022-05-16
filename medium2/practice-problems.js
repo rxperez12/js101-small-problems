@@ -337,4 +337,22 @@ Return answer to user
 
 // console.log(narcissistic(153));
 
-console.log(findMissingLetter(["O", "Q", "R", "S"]));
+const ALPH = "abcdefghijklmnopqrstuvwxyz";
+
+function createEmptyArray() {
+  let result = [];
+  for (let i = 0; i < ALPH.length; i++) {
+    result.push(0);
+  }
+  return result;
+}
+
+function isPangram(string) {
+  let stringLower = string.toLowerCase();
+  let letterArray = createEmptyArray();
+  for (const elem of stringLower) {
+    let index = ALPH.indexOf(elem);
+    letterArray[index] += 1;
+  }
+  return letterArray.every((num) => num > 0);
+}
